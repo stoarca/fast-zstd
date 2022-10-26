@@ -1,0 +1,1 @@
+cmd_Release/obj.target/zstd.node := g++ -o Release/obj.target/zstd.node -shared -pthread -rdynamic -m64  -Wl,-soname=zstd.node -Wl,--start-group Release/obj.target/zstd/hello.o -Wl,--end-group -lzstd -L/home/serge/projects/fast-zstd/vendor/zstd/lib/

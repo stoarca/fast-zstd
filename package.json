@@ -1,0 +1,16 @@
+{
+  "name": "fast-zstd",
+  "version": "1.0.0",
+  "description": "Node bindings for zstd library",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node-gyp rebuild"
+  },
+  "author": "",
+  "license": "ISC",
+  "gypfile": true,
+  "dependencies": {
+    "zstd-codec": "^0.1.4"
+  }
+}

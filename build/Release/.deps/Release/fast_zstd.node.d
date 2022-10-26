@@ -1,0 +1,1 @@
+cmd_Release/fast_zstd.node := ln -f "Release/obj.target/fast_zstd.node" "Release/fast_zstd.node" 2>/dev/null || (rm -rf "Release/fast_zstd.node" && cp -af "Release/obj.target/fast_zstd.node" "Release/fast_zstd.node")
