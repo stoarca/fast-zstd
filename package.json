@@ -7,6 +7,10 @@
     "test": "node test.js",
     "install": "node-gyp rebuild"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stoarca/fast-zstd"
+  },
   "author": "ParseHub",
   "license": "MIT",
   "gypfile": true
