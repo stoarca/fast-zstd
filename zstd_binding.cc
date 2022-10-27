@@ -19,11 +19,9 @@ using v8::String;
 using v8::Uint8Array;
 using v8::Value;
 
-// TODO: do we need to free?
+// TODO: do we need to free? Expected lifetime is the lifetime of the program
 auto cctx = ZSTD_createCCtx();
-auto cctx_no_dict = ZSTD_createCCtx();
 auto dctx = ZSTD_createDCtx();
-auto dctx_no_dict = ZSTD_createDCtx();
 
 void Compress(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
@@ -76,7 +74,7 @@ void Compress(const FunctionCallbackInfo<Value>& args) {
     }
 
     outActualSize = ZSTD_compressCCtx(
-      cctx_no_dict,
+      cctx,
       backingStore->Data(),
       outSize,
       (uint8_t *) inBuff + input->ByteOffset(),
@@ -151,7 +149,7 @@ void Decompress(const FunctionCallbackInfo<Value>& args) {
     );
   } else {
     outActualSize = ZSTD_decompressDCtx(
-      dctx_no_dict,
+      dctx,
       backingStore->Data(),
       outSize,
       (uint8_t *) inBuff + input->ByteOffset(),
@@ -167,6 +165,7 @@ void Decompress(const FunctionCallbackInfo<Value>& args) {
   ));
 }
 
+// TODO: no methods to free yet.
 void CreateCDict(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
 

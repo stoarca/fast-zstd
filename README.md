@@ -15,5 +15,8 @@ CDict zstd.createCDict(Uint8Array rawDictData);
 DDict zstd.createDDict(Uint8Array rawDictData);
 ```
 
-Note: if you used a CDict to compress, you must pass the DDict created from the
-same raw dictionary when decompressing.
+Note: If you used a `CDict` to compress, you must pass the `DDict` created from
+the same raw dictionary when decompressing.
+
+Note: `createCDict` and `createDDict` are *not* garbage-collected. The methods to
+free them have not been exposed yet.
