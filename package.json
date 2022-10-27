@@ -1,11 +1,12 @@
 {
   "name": "fast-zstd",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Node bindings for zstd library",
   "main": "index.js",
   "scripts": {
     "test": "node test.js",
-    "install": "node-gyp rebuild"
+    "build_zstd": "cd vendor/zstd && make lib",
+    "install": "npm run build_zstd && node-gyp rebuild"
   },
   "repository": {
     "type": "git",
