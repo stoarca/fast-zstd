@@ -11,7 +11,7 @@ API
 ```
 Uint8Array zstd.compress(Uint8Array dataToCompress, int|CDict optionalCompressionLevelOrCDict)
 Uint8Array zstd.decompress(Uint8Array dataToDecompress, DDict optionalDDict)
-CDict zstd.createCDict(Uint8Array rawDictData);
+CDict zstd.createCDict(Uint8Array rawDictData, int optionalCompressionLevel);
 DDict zstd.createDDict(Uint8Array rawDictData);
 ```
 
