@@ -100,6 +100,14 @@ void Decompress(const FunctionCallbackInfo<Value>& args) {
     inSize
   );
   CHECK_ZSTD(outSize);
+  if (outSize > 1024 * 1024 * 32) {
+    isolate->ThrowException(Exception::TypeError(
+      String::NewFromUtf8(
+        isolate, "You tried to decompress a large chunk. Streaming mode is not implemented yet"
+      ).ToLocalChecked()
+    ));
+    return;
+  }
   auto backingStore = ArrayBuffer::NewBackingStore(isolate, outSize);
 
   size_t const outActualSize = ZSTD_decompress(

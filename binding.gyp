@@ -2,7 +2,7 @@
   "targets": [
     {
       "target_name": "zstd",
-      "sources": [ "hello.cc" ],
+      "sources": [ "zstd_binding.cc" ],
       "include_dirs": [
         "include", "<(module_root_dir)/vendor/zstd/lib/"
       ],

@@ -1,9 +1,9 @@
-let fs = require('fs');
-let zstd = require('./build/Release/zstd');
+let zstd = require('./index');
 
-let compressed = zstd.compress(Buffer.from('the quick brown fox', 'utf8'));
-console.log(compressed.length);
-console.log(compressed);
+let string = 'the quick brown fox jumped over the lazy dog';
+
+let compressed = zstd.compress(Buffer.from(string, 'utf8'));
+
 let decompressed = Buffer.from(zstd.decompress(compressed), 'utf8').toString();
-console.log(decompressed);
 
+console.log(decompressed);
